@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+/*
+font-family: 'Raleway', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+/************Small (Global)****/
+body {
+	color: #000000;
+	font-family: 'Railway', sans-serif;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: #005288;
+}
+
+h1 {
+	font-family: 'Raleway', sans-serif;
+	color: black;
+	display: inline-block;
+	font-size: 1em;
+	margin: 0;
+	margin-left: 40px;
+}
+
+h2 {
+	font-family: 'Raleway', sans-serif;
+	color: black;
+	display: inline-block;
+	font-size: 1em;
+	margin-left: 15px;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+	height: 1000px;
+	grid-gap: 10px;
+
+	grid-template-areas: 
+		"nav"
+		"voorraden"
+		"temperatuur"
+		"voertuiginfo"
+		"voertuigomgeving"
+		"personen"
+		"foot";
+}
+
+.grid-item {
+	margin: 5px 0px 5px 5px;
+}
+
+.box1 {
+	grid-area: nav;
+	background-color: #efefef;
+	height: 25px;
+	margin: 0;
+	padding: 24px;
+}
+
+.logo {
+	visibility: hidden;
+	height: 25px;
+	position: absolute;
+}
+
+.logoX {
+	visibility: visible;
+	height: 25px;
+	position: absolute;
+}
+
+
+.box2 {
+	grid-area: voertuiginfo;
+	background-color: #efefef;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+	margin: 0 12px 0 12px;
+	padding: 24px;
+}
+
+.box3 {
+	grid-area: voorraden;
+	background-color: #efefef;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+	margin: 0 12px 0 12px;
+	padding: 24px;
+}
+
+
+.box4 {
+	grid-area: voertuigomgeving;
+	background-color: #efefef;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+	margin: 0 12px 0 12px;
+	padding: 24px;
+}
+
+.box5 {
+	grid-area: foot;
+	background-color: #efefef;
+/*	border-radius: 5px;*/
+	height: 25px;
+	margin: 0;
+	padding: 24px;
+}
+
+.logoXfoot {
+	visibility: visible;
+	position: absolute;
+	height: 25px;
+	transform: translate(0%, -40%)
+}
+
+.box6 {
+	grid-area: personen;
+	background-color: #efefef;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+	margin: 0 12px 0 12px;
+	padding: 24px;
+}
+
+table {
+	text-align: left;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th {
+  background-color: rgba(0, 82, 136, 0.5);
+}
+
+td, th {
+	padding: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(214, 238, 255, 0.5);
+}
+/*
+.personenHidden {
+	visibility: hidden;
+	display: none;
+}*/
+
+/*tr:nth-child(odd) {
+  background-color: white;
+}*/
+
+.box7 {
+	grid-area: temperatuur;
+	background-color: #efefef;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+	margin: 0 12px 0 12px;
+	padding: 24px;
+}
+
+.temperatuur {
+	align-content: center;
+}
+
+/**********End Global (small)***/
+
+/************Small-Mid**************/
+@media only screen and (min-width: 470px) and (max-width: 719px) {
+
+
+.box2, .box3, .box4, .box6 {
+	margin: 0 24px 0 24px;
+	padding: 48px;
+}
+
+}
+/************End Small-Mid**************/
+
+/************Mid**************/
+@media only screen and (min-width: 720px) and (max-width: 1023px) {
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	height: 1000px;
+	grid-gap: 10px;
+	margin: 0 auto;
+
+	grid-template-areas: 
+		"nav nav"
+		"voertuiginfo voertuigomgeving"
+		"voorraden temperatuur"
+		"personen personen"
+		"foot foot";
+}
+
+.box1 {
+	grid-area: nav;
+	padding: 48px;
+}
+
+.logo {
+	visibility: visible;
+	height: 25px;
+	position: absolute;
+}
+
+.logoX {
+	visibility: hidden;
+	height: 25px;
+	position: absolute;
+}
+
+.box2 {
+	grid-area: voertuiginfo;
+	margin: 0;
+	padding: 48px;
+}
+
+.box3 {
+	grid-area: voorraden;
+	margin: 0;
+	padding: 48px;
+}
+
+.box4 {
+	grid-area: voertuigomgeving;
+	margin: 0;
+	padding: 48px;
+}
+
+.box5 {
+	grid-area: foot;
+	padding: 48px;
+}
+
+.box6 {
+	grid-area: personen;
+	margin: 0;
+	padding: 48px;
+}
+
+.box7 {
+	grid-area: temperatuur;
+	margin: 0;
+	padding: 48px;
+}
+
+}
+
+/**********End Mid************/
+
+/***********Large*************/
+@media only screen and (min-width: 1024px) and (max-width: 1439px){
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	height: 1000px;
+	grid-gap: 10px;
+	margin: 0 auto;
+
+	grid-template-areas: 
+		"nav nav"
+		"voertuiginfo voertuigomgeving"
+		"voorraden temperatuur"
+		"personen personen"
+		"foot foot";
+}
+
+.box1 {
+	grid-area: nav;
+	padding: 48px;
+}
+
+.logo {
+	visibility: visible;
+	height: 25px;
+	position: absolute;
+}
+
+.logoX {
+	visibility: hidden;
+	height: 25px;
+	position: absolute;
+}
+
+.box2 {
+	grid-area: voertuiginfo;
+	margin: 0;
+	padding: 48px;
+}
+
+.box3 {
+	grid-area: voorraden;
+	margin: 0;
+	padding: 48px;
+}
+
+.box4 {
+	grid-area: voertuigomgeving;
+	margin: 0;
+	padding: 48px;
+}
+
+.box5 {
+	grid-area: foot;
+	padding: 48px;
+}
+
+.box6 {
+	grid-area: personen;
+	margin: 0;
+	padding: 48px;
+}
+
+.box7 {
+	grid-area: temperatuur;
+	margin: 0;
+	padding: 48px;
+}
+
+}
+/*********End Large***********/
+
+/************XL**************/
+@media only screen and (min-width: 1440px) {
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	height: 1000px;
+	grid-gap: 10px;
+	margin: 0 auto;
+	max-width: 2000px;
+
+	grid-template-areas: 
+		"nav nav nav"
+		"voertuiginfo voertuigomgeving voorraden"
+		"personen personen temperatuur"
+		"foot foot foot";
+}
+
+.box1 {
+	grid-area: nav;
+	padding: 48px;
+}
+
+.logo {
+	visibility: visible;
+	height: 25px;
+	position: absolute;
+}
+
+.logoX {
+	visibility: hidden;
+	height: 25px;
+	position: absolute;
+}
+
+.box2 {
+	grid-area: voertuiginfo;
+	margin: 0;
+	padding: 48px;
+}
+
+.box3 {
+	grid-area: voorraden;
+	margin: 0;
+	padding: 48px;
+}
+
+.box4 {
+	grid-area: voertuigomgeving;
+	margin: 0;
+	padding: 48px;
+}
+
+.box5 {
+	grid-area: foot;
+	padding: 48px;
+}
+
+.box6 {
+	grid-area: personen;
+	margin: 0;
+	padding: 48px;
+}
+
+.box7 {
+	grid-area: temperatuur;
+	margin: 0;
+	padding: 48px;
+}
+
+
+/*.personenHidden {
+	visibility: visible;
+	display: inline-block;
+}*/
+
+
+}
+/**********End XL************/
+
