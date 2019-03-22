@@ -80,7 +80,7 @@ function onAPIError(error) {
 
 
 function weatherIcon() {
-	var bodyIcon = document.getElementById('sectionWeather');
+	var bodyIcon = document.getElementById('icon');
 
 	if (response.weather[0].description = "clear sky" && hour < 12) {
 		bodyIcon.style.backgroundImage = 'http://openweathermap.org/img/w/01d.png';
