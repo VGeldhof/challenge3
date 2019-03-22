@@ -42,17 +42,15 @@ h2 {
 .grid-container {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-	height: 1000px;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	height: 500px;
 	grid-gap: 10px;
 
 	grid-template-areas: 
 		"nav"
-		"voorraden"
-		"temperatuur"
-		"voertuiginfo"
-		"voertuigomgeving"
-		"personen"
+		"weer"
+		"top"
+		"iets"
 		"foot";
 }
 
@@ -82,16 +80,34 @@ h2 {
 
 
 .box2 {
-	grid-area: voertuiginfo;
+	grid-area: weer;
 	background-color: #efefef;
 	border-radius: 5px;
 	box-shadow: 2px 2px 5px black;
 	margin: 0 12px 0 12px;
 	padding: 24px;
+	text-align: center;
+}
+
+#city, #weather, #temp {
+	font-family: 'Railway', sans-serif;
+	margin: 20px 0 20px 0;
+}
+
+#city {
+	font-size: 2em;
+}
+
+#weather {
+	font-size: 1.2em;
+}
+
+#temp {
+	font-size: 5em;
 }
 
 .box3 {
-	grid-area: voorraden;
+	grid-area: top;
 	background-color: #efefef;
 	border-radius: 5px;
 	box-shadow: 2px 2px 5px black;
@@ -101,7 +117,7 @@ h2 {
 
 
 .box4 {
-	grid-area: voertuigomgeving;
+	grid-area: iets;
 	background-color: #efefef;
 	border-radius: 5px;
 	box-shadow: 2px 2px 5px black;
@@ -125,54 +141,6 @@ h2 {
 	transform: translate(0%, -40%)
 }
 
-.box6 {
-	grid-area: personen;
-	background-color: #efefef;
-	border-radius: 5px;
-	box-shadow: 2px 2px 5px black;
-	margin: 0 12px 0 12px;
-	padding: 24px;
-}
-
-table {
-	text-align: left;
-	width: 100%;
-	border-collapse: collapse;
-}
-
-th {
-  background-color: rgba(0, 82, 136, 0.5);
-}
-
-td, th {
-	padding: 15px;
-}
-
-tr:nth-child(even) {
-  background-color: rgba(214, 238, 255, 0.5);
-}
-/*
-.personenHidden {
-	visibility: hidden;
-	display: none;
-}*/
-
-/*tr:nth-child(odd) {
-  background-color: white;
-}*/
-
-.box7 {
-	grid-area: temperatuur;
-	background-color: #efefef;
-	border-radius: 5px;
-	box-shadow: 2px 2px 5px black;
-	margin: 0 12px 0 12px;
-	padding: 24px;
-}
-
-.temperatuur {
-	align-content: center;
-}
 
 /**********End Global (small)***/
 
@@ -180,7 +148,7 @@ tr:nth-child(even) {
 @media only screen and (min-width: 470px) and (max-width: 719px) {
 
 
-.box2, .box3, .box4, .box6 {
+.box2, .box3, .box4 {
 	margin: 0 24px 0 24px;
 	padding: 48px;
 }
@@ -201,14 +169,13 @@ tr:nth-child(even) {
 
 	grid-template-areas: 
 		"nav nav"
-		"voertuiginfo voertuigomgeving"
-		"voorraden temperatuur"
-		"personen personen"
+		"weer weer"
+		"top top"
+		"iets iets"
 		"foot foot";
 }
 
 .box1 {
-	grid-area: nav;
 	padding: 48px;
 }
 
@@ -225,39 +192,24 @@ tr:nth-child(even) {
 }
 
 .box2 {
-	grid-area: voertuiginfo;
 	margin: 0;
 	padding: 48px;
 }
 
 .box3 {
-	grid-area: voorraden;
 	margin: 0;
 	padding: 48px;
 }
 
 .box4 {
-	grid-area: voertuigomgeving;
 	margin: 0;
 	padding: 48px;
 }
 
 .box5 {
-	grid-area: foot;
 	padding: 48px;
 }
 
-.box6 {
-	grid-area: personen;
-	margin: 0;
-	padding: 48px;
-}
-
-.box7 {
-	grid-area: temperatuur;
-	margin: 0;
-	padding: 48px;
-}
 
 }
 
@@ -276,14 +228,13 @@ tr:nth-child(even) {
 
 	grid-template-areas: 
 		"nav nav"
-		"voertuiginfo voertuigomgeving"
-		"voorraden temperatuur"
-		"personen personen"
+		"weer weer"
+		"top top"
+		"iets iets"
 		"foot foot";
 }
 
 .box1 {
-	grid-area: nav;
 	padding: 48px;
 }
 
@@ -300,37 +251,21 @@ tr:nth-child(even) {
 }
 
 .box2 {
-	grid-area: voertuiginfo;
 	margin: 0;
 	padding: 48px;
 }
 
 .box3 {
-	grid-area: voorraden;
 	margin: 0;
 	padding: 48px;
 }
 
 .box4 {
-	grid-area: voertuigomgeving;
 	margin: 0;
 	padding: 48px;
 }
 
 .box5 {
-	grid-area: foot;
-	padding: 48px;
-}
-
-.box6 {
-	grid-area: personen;
-	margin: 0;
-	padding: 48px;
-}
-
-.box7 {
-	grid-area: temperatuur;
-	margin: 0;
 	padding: 48px;
 }
 
@@ -351,13 +286,11 @@ tr:nth-child(even) {
 
 	grid-template-areas: 
 		"nav nav nav"
-		"voertuiginfo voertuigomgeving voorraden"
-		"personen personen temperatuur"
+		"weer weer top"
 		"foot foot foot";
 }
 
 .box1 {
-	grid-area: nav;
 	padding: 48px;
 }
 
@@ -374,45 +307,23 @@ tr:nth-child(even) {
 }
 
 .box2 {
-	grid-area: voertuiginfo;
 	margin: 0;
 	padding: 48px;
 }
 
 .box3 {
-	grid-area: voorraden;
 	margin: 0;
 	padding: 48px;
 }
 
 .box4 {
-	grid-area: voertuigomgeving;
 	margin: 0;
 	padding: 48px;
 }
 
 .box5 {
-	grid-area: foot;
 	padding: 48px;
 }
-
-.box6 {
-	grid-area: personen;
-	margin: 0;
-	padding: 48px;
-}
-
-.box7 {
-	grid-area: temperatuur;
-	margin: 0;
-	padding: 48px;
-}
-
-
-/*.personenHidden {
-	visibility: visible;
-	display: inline-block;
-}*/
 
 
 }
