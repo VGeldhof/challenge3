@@ -36,6 +36,52 @@ function getAPIdata() {
 	});
 }
 
+// Als het wel goed is wordt deze uitgevoerd.
+function onAPISucces(response) {
+	// get type of weather in string format
+	var type = response.weather[0].description;
+
+	// get temperature in Celcius
+	var degC = Math.floor(response.main.temp - 273.15);
+
+	// get name of city
+	var cityName = response.name;
+
+	// render weather in DOM
+	var weatherCity = document.getElementById('city');
+
+	var weatherType = document.getElementById('weather');
+
+	var weatherTemp = document.getElementById('temp');
+
+
+	weatherCity.innerHTML = cityName;
+
+	weatherType.innerHTML = type;
+
+	weatherTemp.innerHTML = degC + "&#176;C";
+}
+
+
+
+
+function weatherIcon() {
+	var bodyIcon = document.getElementById('icon');
+
+	if (response.weather[0].description = "clear sky" && hour < 12) {
+		bodyIcon.style.backgroundImage = 'http://openweathermap.org/img/w/01d.png';
+	}
+	else {
+		bodyIcon.style.backgroundImage = 'http://openweathermap.org/img/w/10d.png';
+	}
+
+
+}
+
+
+
+
+
 function getAPIdataZomato() {
 
 	var url = "https://developers.zomato.com/api/v2.1/cities";
@@ -82,47 +128,25 @@ function getAPIdataZomato() {
 	});
 }
 
-// Als het wel goed is wordt deze uitgevoerd.
-function onAPISucces(response) {
-	// get type of weather in string format
-	var type = response.weather[0].description;
-
-	// get temperature in Celcius
-	var degC = Math.floor(response.main.temp - 273.15);
-
-	// get name of city
-	var cityName = response.name;
-
-	// render weather in DOM
-	var weatherCity = document.getElementById('city');
-
-	var weatherType = document.getElementById('weather');
-
-	var weatherTemp = document.getElementById('temp');
-
-
-	weatherCity.innerHTML = cityName;
-
-	weatherType.innerHTML = type;
-
-	weatherTemp.innerHTML = degC + "&#176;C";
-}
-
 function onAPISuccesZomato(response) {
 
 	var type = response.location_suggestions[0].name;
 
+	// var restaurant = response.location_suggestions[0].cuisines.cuisine.cuisine_name;
+
 	var foodType = document.getElementById('cityName');
 
+	// var restaurantCuisine = document.getElementById('listRestaurants');
+	
 	foodType.innerHTML = type;
 
-	var restaurant = response.cuise[0]cuisine_name;
-
-	var restaurantCuisine = document.getElementById('listRestaurants');
-
-	restaurantCuisine.innerHTML = restaurant;
+	// restaurantCuisine.innerHTML = restaurant;
 
 }
+
+
+
+
 
 
 function onAPIError(error) {
@@ -141,18 +165,8 @@ function onAPIError(error) {
 }
 
 
-function weatherIcon() {
-	var bodyIcon = document.getElementById('icon');
-
-	if (response.weather[0].description = "clear sky" && hour < 12) {
-		bodyIcon.style.backgroundImage = 'http://openweathermap.org/img/w/01d.png';
-	}
-	else {
-		bodyIcon.style.backgroundImage = 'http://openweathermap.org/img/w/10d.png';
-	}
 
 
-}
 
 // init data stream
 getAPIdata();
