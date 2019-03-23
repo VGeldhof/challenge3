@@ -120,6 +120,19 @@ h2 {
 	font-size: 2em;
 }
 
+#collectionTitle {
+	font-size: 1.2em;
+	margin: 20px 0 20px 0;
+}
+
+#collectionURL {
+	width: 100%;
+	font-size: 1em;
+}
+
+#collectionIMG {
+	width: 100%;
+}
 
 .box4 {
 	grid-area: iets;
