@@ -271,35 +271,52 @@ function onAPISuccesZomatoTop(response) {
 	var dataAddress = response.restaurants[0].restaurant.location.address;
 	var dataRating = response.restaurants[0].restaurant.user_rating.aggregate_rating;
 
-	var restaurantName = document.getElementById('topRestaurantOne');
+	var restaurantName = document.getElementById('dataName');
+	var restaurantCuisine = document.getElementById('dataCuisine');
+	var restaurantAddress = document.getElementById('dataAddress');
+	var restaurantRating = document.getElementById('dataRating');
 
-
-	restaurantName.innerHTML = dataName + "</br>" + dataCuisine + "</br>" + dataAddress + "</br>" + dataRating + " /5";
-
-
-
-	var dataName = response.restaurants[1].restaurant.name;
-	var dataCuisine = response.restaurants[1].restaurant.cuisines;
-	var dataAddress = response.restaurants[1].restaurant.location.address;
-	var dataRating = response.restaurants[1].restaurant.user_rating.aggregate_rating;
-
-	var restaurantNameTwo = document.getElementById('topRestaurantTwo');
-
-
-	restaurantNameTwo.innerHTML = dataName + "</br>" + dataCuisine + "</br>" + dataAddress + "</br>" + dataRating + " /5";
+	restaurantName.innerHTML = dataName;
+	restaurantCuisine.innerHTML = dataCuisine;
+	restaurantAddress.innerHTML = dataAddress;
+	restaurantRating.innerHTML = dataRating + "/5";
 
 
 
-	var dataName = response.restaurants[2].restaurant.name;
-	var dataCuisine = response.restaurants[2].restaurant.cuisines;
-	var dataAddress = response.restaurants[2].restaurant.location.address;
-	var dataRating = response.restaurants[2].restaurant.user_rating.aggregate_rating;
 
-	var restaurantNameThree = document.getElementById('topRestaurantThree');
+	var dataNameTwo = response.restaurants[1].restaurant.name;
+	var dataCuisineTwo = response.restaurants[1].restaurant.cuisines;
+	var dataAddressTwo = response.restaurants[1].restaurant.location.address;
+	var dataRatingTwo = response.restaurants[1].restaurant.user_rating.aggregate_rating;
+
+	var restaurantNameTwo = document.getElementById('dataNameTwo');
+	var restaurantCuisineTwo = document.getElementById('dataCuisineTwo');
+	var restaurantAddressTwo = document.getElementById('dataAddressTwo');
+	var restaurantRatingTwo = document.getElementById('dataRatingTwo');
+
+	restaurantNameTwo.innerHTML = dataNameTwo;
+	restaurantCuisineTwo.innerHTML = dataCuisineTwo;
+	restaurantAddressTwo.innerHTML = dataAddressTwo;
+	restaurantRatingTwo.innerHTML = dataRatingTwo + "/5";
 
 
-	restaurantNameThree.innerHTML = dataName + "</br>" + dataCuisine + "</br>" + dataAddress + "</br>" + dataRating + " /5";
 
+
+
+	var dataNameThree = response.restaurants[2].restaurant.name;
+	var dataCuisineThree = response.restaurants[2].restaurant.cuisines;
+	var dataAddressThree = response.restaurants[2].restaurant.location.address;
+	var dataRatingThree = response.restaurants[2].restaurant.user_rating.aggregate_rating;
+
+	var restaurantNameThree = document.getElementById('dataNameThree');
+	var restaurantCuisineThree = document.getElementById('dataCuisineThree');
+	var restaurantAddressThree = document.getElementById('dataAddressThree');
+	var restaurantRatingThree = document.getElementById('dataRatingThree');
+
+	restaurantNameThree.innerHTML = dataNameThree;
+	restaurantCuisineThree.innerHTML = dataCuisineThree;
+	restaurantAddressThree.innerHTML = dataAddressThree;
+	restaurantRatingThree.innerHTML = dataRatingThree + "/5";
 
 }
 

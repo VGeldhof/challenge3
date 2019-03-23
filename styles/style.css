@@ -12,7 +12,7 @@ html {
 /************Small (Global)****/
 body {
 	color: #000000;
-	font-family: 'Railway', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	font-size: 1em;
 	margin: 0;
 	padding: 0;
@@ -95,19 +95,16 @@ h2 {
 
 #city {
 	font-size: 2em;
-	font-family: Raleway;
 	margin: 20px 0 20px 0;
 }
 
 #weather {
 	font-size: 1.2em;
-	font-family: Raleway;
 	margin: 20px 0 20px 0;
 }
 
 #temp {
 	font-size: 5em;
-	font-family: Raleway;
 	margin: 20px 0 20px 0;
 }
 
@@ -123,23 +120,19 @@ h2 {
 
 #cityName {
 	font-size: 2em;
-	font-family: Raleway;
 }
 
 #collectionTitle {
-	font-family: Raleway;
 	font-size: 1.2em;
 	margin: 20px 0 20px 0;
 }
 
 #collectionDescription {
-	font-family: Raleway;
 	width: 100%;
 	font-size: 1em;
 }
 
 #collectionURL {
-	font-family: Raleway;
 	width: 100%;
 	font-size: 1em;
 }
@@ -173,6 +166,37 @@ h2 {
 	box-shadow: 2px 2px 5px black;
 	margin: 0 12px 0 12px;
 	padding: 24px; 
+}
+
+#dataName, #dataNameTwo, #dataNameThree {
+	font-size: 2em;
+	color: #005288;
+	text-shadow: 2px 1px 0px #fff, 
+				 5px 3px 0px rgba(0,0,0,0.15);
+	padding: 10px 10px 0 10px;
+}
+
+#dataCuisine, #dataCuisineTwo, #dataCuisineThree {
+	font-size: 1em;
+	color: #005288;
+	padding: 5px 10px 10px 10px;
+}
+
+#dataRating, #dataRatingTwo, #dataRatingThree {
+	font-size: 2em;
+	border-bottom: 1px solid #3498da;
+	border-top: 1px solid #3498da;
+	padding: 15px;
+	text-align: center;
+/*	color: rgb(214, 240, 255);*/
+	color: #005288;
+}
+
+#dataAddress, #dataAddressTwo, #dataAddressThree {
+	font-size: 1.2em;
+	padding: 15px;
+	text-align: center;
+	color: #005288;
 }
 
 .box4 {
