@@ -60,26 +60,23 @@ function onAPISucces(response) {
 	weatherType.innerHTML = type;
 
 	weatherTemp.innerHTML = degC + "&#176;C";
-}
 
 
 
+	var weatherList = response.list;
+	var weatherBox = document.getElementById('list');
+	
+	for(var i=0; i<weatherList.length; i++){
+		
+		var dateTime = new Date(weatherList[i].dt_txt);
+		var iconUrl = 'http://openweathermap.org/img/w/' + weatherList[i].weather[0].icon + '.png';
 
-function weatherIcon() {
-	var bodyIcon = document.getElementById('icon');
-	var hour = today.getHours();
+		forecastMessage += '<img src="' + iconUrl + '">';
 
-	if (response.weather[0].description = 'clear sky' && hour < 12) {
-		bodyIcon.style.backgroundImage = 'http://openweathermap.org/img/w/01d.png';
+		weatherBox.innerHTML = forecastMessage;
+
 	}
-	else {
-		bodyIcon.style.backgroundImage = 'http://openweathermap.org/img/w/10d.png';
-	}
-
-
 }
-
-
 
 
 
@@ -214,54 +211,54 @@ function onAPISuccesZomatoCollections(response) {
 }
 
 
-// function getAPIdataJOD() {
+function getAPIdataJOD() {
 
-// 	var url = "https://api.jokes.one/jod";	
+	var url = "https://api.jokes.one";	
 	
-// 	var request = url;
+	var request = url + '/jod';
 
-// 	// get current city details
-// 	fetch(request, {
-// 		method:'GET', 
-// 		headers: {
-// 			'X-JokesOne-Api-Secret': 'api_key'
-// 		}
-// 	})
+	// get current city details
+	fetch(request, {
+		method:'GET', 
+		headers: {
+			'X-JokesOne-Api-Secret': 'api_key'
+		}
+	})
 	
-// 	// parse to JSON format
-// 	.then(function(response) {
-// 		// if niet ok dan is er iets mis gegaan.
-// 		if(!response.ok) {
-// 			// throw betekent gooien. Dit wordt naar catch gegooid.
-// 			throw Error(response.statusText);
-// 		}
-// 		return response.json();
-// 	})
+	// parse to JSON format
+	.then(function(response) {
+		// if niet ok dan is er iets mis gegaan.
+		if(!response.ok) {
+			// throw betekent gooien. Dit wordt naar catch gegooid.
+			throw Error(response.statusText);
+		}
+		return response.json();
+	})
 	
-// 	// render weather per day
-// 	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
-// 	.then(function(response) {
-// 		// render weatherCondition
-// 		onAPISuccesJOD(response);	
-// 	})
+	// render weather per day
+	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
+	.then(function(response) {
+		// render weatherCondition
+		onAPISuccesJOD(response);	
+	})
 	
-// 	// catch error
-// 	// Hier vang je de fout op.
-// 	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
-// 	.catch(function (error) {
-// 		onAPIError(error);
-// 	});
-// }
+	// catch error
+	// Hier vang je de fout op.
+	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	.catch(function (error) {
+		onAPIError(error);
+	});
+}
 
-// function onAPISuccesJOD(response) {
-// 	console.log(response)
-// 	// var joke = response.contents.jokes[0].joke.text;
+function onAPISuccesJOD(response) {
+	console.log(response)
+	var joke = response.contents.jokes[0].NewJoke.joke;
 
-// 	// var contentJoke = document.getElementById('JOD');
+	var contentJoke = document.getElementById('JOD');
 
-// 	// contentJoke.innerHTML = joke;
+	contentJoke.innerHTML = joke;
 
-// }
+}
 
 
 
@@ -278,6 +275,10 @@ function onAPIError(error) {
 	var weatherTemp = document.getElementById('temp');
 	// laat als een error er is maakt hij hem hidden.
 	weatherTemp.className = 'hidden';
+
+	var weatherList = document.getElementById('list');
+	// laat als een error er is maakt hij hem hidden.
+	weatherList.className = 'hidden';
 }
 
 
