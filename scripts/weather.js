@@ -214,6 +214,55 @@ function onAPISuccesZomatoCollections(response) {
 }
 
 
+function getAPIdataJOD() {
+
+	var url = "https://api.jokes.one/jod";	
+	
+	var request = url;
+
+	// get current city details
+	fetch(request, {
+		method:'GET', 
+		headers: {
+			'X-JokesOne-Api-Secret': 'api_key'
+		}
+	})
+	
+	// parse to JSON format
+	.then(function(response) {
+		// if niet ok dan is er iets mis gegaan.
+		if(!response.ok) {
+			// throw betekent gooien. Dit wordt naar catch gegooid.
+			throw Error(response.statusText);
+		}
+		return response.json();
+	})
+	
+	// render weather per day
+	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
+	.then(function(response) {
+		// render weatherCondition
+		onAPISuccesJOD(response);	
+	})
+	
+	// catch error
+	// Hier vang je de fout op.
+	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	.catch(function (error) {
+		onAPIError(error);
+	});
+}
+
+function onAPISuccesJOD(response) {
+	console.log(response)
+	// var joke = response.contents.jokes[0].joke.text;
+
+	// var contentJoke = document.getElementById('JOD');
+
+	// contentJoke.innerHTML = joke;
+
+}
+
 
 
 function onAPIError(error) {
@@ -241,6 +290,8 @@ getAPIdata();
 getAPIdataZomato();
 
 getAPIdataZomatoCollections();
+
+getAPIdataJOD();
 
 
 
