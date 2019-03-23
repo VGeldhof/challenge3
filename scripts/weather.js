@@ -67,6 +67,7 @@ function onAPISucces(response) {
 
 function weatherIcon() {
 	var bodyIcon = document.getElementById('icon');
+	var hour = today.getHours();
 
 	if (response.weather[0].description = "clear sky" && hour < 12) {
 		bodyIcon.style.backgroundImage = 'http://openweathermap.org/img/w/01d.png';
