@@ -64,7 +64,7 @@ function onAPISucces(response) {
 
 
 	var weatherList = response.list;
-	var weatherBox = document.getElementById('list');
+	var weatherBox = document.getElementById('icon');
 	
 	for(var i=0; i<weatherList.length; i++){
 		
@@ -204,24 +204,37 @@ function onAPISuccesZomatoCollections(response) {
 
 
 
-	var restaurantURL = response.collections[0].collection.url;
-	var collectionURL = document.getElementById('collectionIMG').setAttribute('src', response.collections[0].collection.image_url);
+	// var restaurantURL = response.collections[0].collection.url;
+	// var collectionURL = document.getElementById('collectionIMG').setAttribute('src', response.collections[0].collection.image_url);
 
 
 }
 
 
-function getAPIdataJOD() {
 
-	var url = "https://api.jokes.one";	
+
+function getAPIdataZomatoTop() {
+
+	var url = "https://developers.zomato.com/api/v2.1/";
+	var apiKey ="79c55a16192a56bb6f9e4dec7af22bc5";
+	var city = "277";
+	var collectionID = "1";
+	var entityType = "city";
+	var sort = "rating"
+
+	// construct request
+	var request = url + "search?entity_id=" + city + "&entity_type=" + entityType + "&collection_id=" + collectionID + "&sort=" + sort;
+
+	var myHeaders = new Headers();
+
+	myHeaders.append('user-key', '79c55a16192a56bb6f9e4dec7af22bc5');	
 	
-	var request = url + '/jod';
 
 	// get current city details
 	fetch(request, {
 		method:'GET', 
 		headers: {
-			'X-JokesOne-Api-Secret': 'api_key'
+			'user-key': '79c55a16192a56bb6f9e4dec7af22bc5'
 		}
 	})
 	
@@ -239,7 +252,7 @@ function getAPIdataJOD() {
 	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
 	.then(function(response) {
 		// render weatherCondition
-		onAPISuccesJOD(response);	
+		onAPISuccesZomatoTop(response);	
 	})
 	
 	// catch error
@@ -250,15 +263,109 @@ function getAPIdataJOD() {
 	});
 }
 
-function onAPISuccesJOD(response) {
+function onAPISuccesZomatoTop(response) {
 	console.log(response)
-	var joke = response.contents.jokes[0].NewJoke.joke;
 
-	var contentJoke = document.getElementById('JOD');
+	var dataName = response.restaurants[0].restaurant.name;
+	var dataCuisine = response.restaurants[0].restaurant.cuisines;
+	var dataAddress = response.restaurants[0].restaurant.location.address;
+	var dataRating = response.restaurants[0].restaurant.user_rating.aggregate_rating;
 
-	contentJoke.innerHTML = joke;
+	var restaurantName = document.getElementById('topRestaurantOne');
+
+
+	restaurantName.innerHTML = dataName + "</br>" + dataCuisine + "</br>" + dataAddress + "</br>" + dataRating + " /5";
+
+
+
+	var dataName = response.restaurants[1].restaurant.name;
+	var dataCuisine = response.restaurants[1].restaurant.cuisines;
+	var dataAddress = response.restaurants[1].restaurant.location.address;
+	var dataRating = response.restaurants[1].restaurant.user_rating.aggregate_rating;
+
+	var restaurantNameTwo = document.getElementById('topRestaurantTwo');
+
+
+	restaurantNameTwo.innerHTML = dataName + "</br>" + dataCuisine + "</br>" + dataAddress + "</br>" + dataRating + " /5";
+
+
+
+	var dataName = response.restaurants[2].restaurant.name;
+	var dataCuisine = response.restaurants[2].restaurant.cuisines;
+	var dataAddress = response.restaurants[2].restaurant.location.address;
+	var dataRating = response.restaurants[2].restaurant.user_rating.aggregate_rating;
+
+	var restaurantNameThree = document.getElementById('topRestaurantThree');
+
+
+	restaurantNameThree.innerHTML = dataName + "</br>" + dataCuisine + "</br>" + dataAddress + "</br>" + dataRating + " /5";
+
 
 }
+
+
+
+
+
+
+
+
+// function getAPIdataJOD() {
+
+// 	var url = "https://api.jokes.one";	
+	
+// 	var request = url + '/jod';
+
+// 	// get current city details
+// 	fetch(request, {
+// 		method:'GET', 
+// 		headers: {
+// 			'X-JokesOne-Api-Secret': 'api_key'
+// 		}
+// 	})
+	
+// 	// parse to JSON format
+// 	.then(function(response) {
+// 		// if niet ok dan is er iets mis gegaan.
+// 		if(!response.ok) {
+// 			// throw betekent gooien. Dit wordt naar catch gegooid.
+// 			throw Error(response.statusText);
+// 		}
+// 		return response.json();
+// 	})
+	
+// 	// render weather per day
+// 	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
+// 	.then(function(response) {
+// 		// render weatherCondition
+// 		onAPISuccesJOD(response);	
+// 	})
+	
+// 	// catch error
+// 	// Hier vang je de fout op.
+// 	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+// 	.catch(function (error) {
+// 		onAPIError(error);
+// 	});
+// }
+
+// function onAPISuccesJOD(response) {
+// 	console.log(response)
+// 	var joke = response.contents.jokes[0].NewJoke.joke;
+
+// 	var contentJoke = document.getElementById('JOD');
+
+// 	contentJoke.innerHTML = joke;
+
+// }
+
+
+
+
+
+
+
+
 
 
 
@@ -276,7 +383,7 @@ function onAPIError(error) {
 	// laat als een error er is maakt hij hem hidden.
 	weatherTemp.className = 'hidden';
 
-	var weatherList = document.getElementById('list');
+	var weatherList = document.getElementById('icon');
 	// laat als een error er is maakt hij hem hidden.
 	weatherList.className = 'hidden';
 }
@@ -292,7 +399,9 @@ getAPIdataZomato();
 
 getAPIdataZomatoCollections();
 
-getAPIdataJOD();
+getAPIdataZomatoTop();
+
+// getAPIdataJOD();
 
 
 

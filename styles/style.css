@@ -42,7 +42,7 @@ h2 {
 .grid-container {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 	height: 500px;
 	grid-gap: 10px;
 
@@ -50,6 +50,9 @@ h2 {
 		"nav"
 		"weer"
 		"top"
+		"top1"
+		"top2"
+		"top3"
 		"iets"
 		"foot";
 }
@@ -89,21 +92,23 @@ h2 {
 	text-align: center;
 }
 
-#city, #weather, #temp {
-	font-family: 'Railway', sans-serif;
-	margin: 20px 0 20px 0;
-}
 
 #city {
 	font-size: 2em;
+	font-family: Raleway;
+	margin: 20px 0 20px 0;
 }
 
 #weather {
 	font-size: 1.2em;
+	font-family: Raleway;
+	margin: 20px 0 20px 0;
 }
 
 #temp {
 	font-size: 5em;
+	font-family: Raleway;
+	margin: 20px 0 20px 0;
 }
 
 .box3 {
@@ -118,20 +123,56 @@ h2 {
 
 #cityName {
 	font-size: 2em;
+	font-family: Raleway;
 }
 
 #collectionTitle {
+	font-family: Raleway;
 	font-size: 1.2em;
 	margin: 20px 0 20px 0;
 }
 
+#collectionDescription {
+	font-family: Raleway;
+	width: 100%;
+	font-size: 1em;
+}
+
 #collectionURL {
+	font-family: Raleway;
 	width: 100%;
 	font-size: 1em;
 }
 
 #collectionIMG {
 	width: 100%;
+}
+
+.box6 {
+	grid-area: top1;
+	background-color: #efefef;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+	margin: 0 12px 0 12px;
+	padding: 24px; 
+}
+
+.box7 {
+	grid-area: top2;
+	background-color: #efefef;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+	margin: 0 12px 0 12px;
+	padding: 24px; 
+}
+
+.box8 {
+	grid-area: top3;
+	background-color: #efefef;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+	margin: 0 12px 0 12px;
+	padding: 24px; 
 }
 
 .box4 {
