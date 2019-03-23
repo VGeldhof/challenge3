@@ -113,6 +113,11 @@ h2 {
 	box-shadow: 2px 2px 5px black;
 	margin: 0 12px 0 12px;
 	padding: 24px;
+	text-align: center;
+}
+
+#cityName {
+	font-size: 2em;
 }
 
 

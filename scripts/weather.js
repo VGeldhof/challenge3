@@ -3,7 +3,7 @@ function getAPIdata() {
 
 	var url = "https://api.openweathermap.org/data/2.5/weather";
 	var apiKey ="3e55ddc5955b7f88c5f00cfff878c77c";
-	var city = "koudekerk%20aan%20den%20rijn,nl";
+	var city = "houston,usa";
 
 	// construct request
 	var request = url + "?" + "appid=" + apiKey + "&" + "q=" + city;
@@ -26,6 +26,52 @@ function getAPIdata() {
 	.then(function(response) {
 		// render weatherCondition
 		onAPISucces(response);	
+	})
+	
+	// catch error
+	// Hier vang je de fout op.
+	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	.catch(function (error) {
+		onAPIError(error);
+	});
+}
+
+function getAPIdataZomato() {
+
+	var url = "https://developers.zomato.com/api/v2.1/cities";
+	var apiKey ="79c55a16192a56bb6f9e4dec7af22bc5";
+	var city = "Houston";
+
+	// construct request
+	var request = url + "?" + "q=" + city;
+	var myHeaders = new Headers();
+
+	myHeaders.append('user-key', '79c55a16192a56bb6f9e4dec7af22bc5');	
+	
+
+	// get current city details
+	fetch(request, {
+		method:'GET', 
+		headers: {
+			'user-key': '79c55a16192a56bb6f9e4dec7af22bc5'
+		}
+})
+	
+	// parse to JSON format
+	.then(function(response) {
+		// if niet ok dan is er iets mis gegaan.
+		if(!response.ok) {
+			// throw betekent gooien. Dit wordt naar catch gegooid.
+			throw Error(response.statusText);
+		}
+		return response.json();
+	})
+	
+	// render weather per day
+	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
+	.then(function(response) {
+		// render weatherCondition
+		onAPISuccesZomato(response);	
 	})
 	
 	// catch error
@@ -62,6 +108,22 @@ function onAPISucces(response) {
 	weatherTemp.innerHTML = degC + "&#176;C";
 }
 
+function onAPISuccesZomato(response) {
+
+	var type = response.location_suggestions[0].name;
+
+	var foodType = document.getElementById('cityName');
+
+	foodType.innerHTML = type;
+
+	var restaurant = response.cuise[0]cuisine_name;
+
+	var restaurantCuisine = document.getElementById('listRestaurants');
+
+	restaurantCuisine.innerHTML = restaurant;
+
+}
+
 
 function onAPIError(error) {
 	console.error('Request failed', error);
@@ -94,6 +156,8 @@ function weatherIcon() {
 
 // init data stream
 getAPIdata();
+
+getAPIdataZomato();
 
 
 
