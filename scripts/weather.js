@@ -107,11 +107,13 @@ function onAPISuccesForecast(response) {
 	console.log(response)
 	
 	var weatherList = response.weather[0].icon;
-	var weatherBox = document.getElementById('icon');
 	var iconUrl = 'http://openweathermap.org/img/w/' + weatherList + '.png';
-
-	var forecastMessage = document.getElementById('weatherIMG').setAttribute('src', weatherList);
-
+	var weatherIcon = weatherList + iconUrl;
+	
+	var forecastMessage = document.getElementById('weatherIMG').setAttribute('src', weatherIcon);
+	
+	var weatherBox = document.getElementById('icon');
+	
 	weatherBox.innerHTML = forecastMessage;
 
 }
@@ -145,8 +147,6 @@ function onAPIError(error) {
 getAPIdata();
 
 getAPIdataForecast();
-
-
 
 
 
