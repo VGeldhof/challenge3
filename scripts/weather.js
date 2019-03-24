@@ -80,6 +80,63 @@ function onAPISucces(response) {
 
 
 
+function getAPIdataForecast() {
+
+	var url = "https://api.openweathermap.org/data/2.5/weather";
+	var apiKey ="3e55ddc5955b7f88c5f00cfff878c77c";
+	var city = "houston,usa";
+
+	// construct request
+	var request = url + "?" + "appid=" + apiKey + "&" + "q=" + city;
+	
+	// get current weather
+	fetch(request)
+	
+	// parse to JSON format
+	.then(function(response) {
+		// if niet ok dan is er iets mis gegaan.
+		if(!response.ok) {
+			// throw betekent gooien. Dit wordt naar catch gegooid.
+			throw Error(response.statusText);
+		}
+		return response.json();
+	})
+	
+	// render weather per day
+	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
+	.then(function(response) {
+		// render weatherCondition
+		onAPISuccesForecast(response);	
+	})
+	
+	// catch error
+	// Hier vang je de fout op.
+	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	.catch(function (error) {
+		onAPIError(error);
+	});
+}
+
+// Als het wel goed is wordt deze uitgevoerd.
+function onAPISuccesForecast(response) {
+	
+	var weatherList = response.weather.weather.icon;
+	var weatherBox = document.getElementById('icon');
+	
+	for(var i=0; i<weatherList.length; i++){
+		
+		var dateTime = new Date(weatherList[i].dt_txt);
+		var iconUrl = 'http://openweathermap.org/img/w/' + weatherList[i].weather[0].icon + '.png';
+
+		forecastMessage += '<img src="' + iconUrl + '">';
+
+		weatherBox.innerHTML = forecastMessage;
+
+	}
+}
+
+
+
 function getAPIdataZomato() {
 
 	var url = "https://developers.zomato.com/api/v2.1/cities";
