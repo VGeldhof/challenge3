@@ -61,21 +61,6 @@ function onAPISucces(response) {
 
 	weatherTemp.innerHTML = degC + "&#176;C";
 
-
-
-	var weatherList = response.list;
-	var weatherBox = document.getElementById('icon');
-	
-	for(var i=0; i<weatherList.length; i++){
-		
-		var dateTime = new Date(weatherList[i].dt_txt);
-		var iconUrl = 'http://openweathermap.org/img/w/' + weatherList[i].weather[0].icon + '.png';
-
-		forecastMessage += '<img src="' + iconUrl + '">';
-
-		weatherBox.innerHTML = forecastMessage;
-
-	}
 }
 
 
@@ -119,20 +104,18 @@ function getAPIdataForecast() {
 
 // Als het wel goed is wordt deze uitgevoerd.
 function onAPISuccesForecast(response) {
+	console.log(response)
 	
-	var weatherList = response.weather.weather.icon;
+	var weatherList = response.weather[0].icon;
 	var weatherBox = document.getElementById('icon');
-	
-	for(var i=0; i<weatherList.length; i++){
-		
-		var dateTime = new Date(weatherList[i].dt_txt);
-		var iconUrl = 'http://openweathermap.org/img/w/' + weatherList[i].weather[0].icon + '.png';
+	var iconUrl = 'http://openweathermap.org/img/w/' + weatherList + '.png';
 
-		forecastMessage += '<img src="' + iconUrl + '">';
+	var forecastMessage = document.getElementById('weatherIMG').setAttribute('src', weatherList);
 
-		weatherBox.innerHTML = forecastMessage;
+	weatherBox.innerHTML = forecastMessage;
 
-	}
+
+
 }
 
 
@@ -468,6 +451,8 @@ function onAPIError(error) {
 
 // init data stream
 getAPIdata();
+
+getAPIdataForecast();
 
 getAPIdataZomato();
 
