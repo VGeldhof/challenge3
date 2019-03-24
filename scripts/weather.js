@@ -365,56 +365,53 @@ function onAPISuccesZomatoTop(response) {
 
 
 
+function getAPIdataJoke() {
 
-
-// function getAPIdataJOD() {
-
-// 	var url = "https://api.jokes.one";	
+	var url = "https://official-joke-api.appspot.com/jokes/random";	
 	
-// 	var request = url + '/jod';
+	var request = url;
 
-// 	// get current city details
-// 	fetch(request, {
-// 		method:'GET', 
-// 		headers: {
-// 			'X-JokesOne-Api-Secret': 'api_key'
-// 		}
-// 	})
+	// get current city details
+	fetch(request)
 	
-// 	// parse to JSON format
-// 	.then(function(response) {
-// 		// if niet ok dan is er iets mis gegaan.
-// 		if(!response.ok) {
-// 			// throw betekent gooien. Dit wordt naar catch gegooid.
-// 			throw Error(response.statusText);
-// 		}
-// 		return response.json();
-// 	})
+	// parse to JSON format
+	.then(function(response) {
+		// if niet ok dan is er iets mis gegaan.
+		if(!response.ok) {
+			// throw betekent gooien. Dit wordt naar catch gegooid.
+			throw Error(response.statusText);
+		}
+		return response.json();
+	})
 	
-// 	// render weather per day
-// 	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
-// 	.then(function(response) {
-// 		// render weatherCondition
-// 		onAPISuccesJOD(response);	
-// 	})
+	// render weather per day
+	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
+	.then(function(response) {
+		// render weatherCondition
+		onAPISuccesJoke(response);	
+	})
 	
-// 	// catch error
-// 	// Hier vang je de fout op.
-// 	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
-// 	.catch(function (error) {
-// 		onAPIError(error);
-// 	});
-// }
+	// catch error
+	// Hier vang je de fout op.
+	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	.catch(function (error) {
+		onAPIError(error);
+	});
+}
 
-// function onAPISuccesJOD(response) {
-// 	console.log(response)
-// 	var joke = response.contents.jokes[0].NewJoke.joke;
+function onAPISuccesJoke(response) {
+	console.log(response)
+	
+	var jokeSetup = response.setup;
+	var jokePunchline = response.punchline;
 
-// 	var contentJoke = document.getElementById('JOD');
+	var jokeQ = document.getElementById('jokeQ');
+	var jokeA = document.getElementById('jokeA');
 
-// 	contentJoke.innerHTML = joke;
+	jokeQ.innerHTML = jokeSetup;
+	jokeA.innerHTML = jokePunchline;
+}
 
-// }
 
 
 
@@ -460,7 +457,7 @@ getAPIdataZomatoCollections();
 
 getAPIdataZomatoTop();
 
-// getAPIdataJOD();
+getAPIdataJoke();
 
 
 
