@@ -208,6 +208,24 @@ h2 {
 	padding: 24px;
 }
 
+#jokeQ {
+	font-size: 2em;
+	border-bottom: 1px solid #3498da;
+	border-top: 1px solid #3498da;
+	padding: 15px;
+	text-align: center;
+	color: #005288;
+}
+
+#jokeA {
+	font-size: 1em;
+	border-bottom: 1px solid #3498da;
+	border-top: 1px solid #3498da;
+	padding: 15px;
+	text-align: center;
+	color: #005288;
+}
+
 .box5 {
 	grid-area: foot;
 	background-color: #efefef;
@@ -314,10 +332,9 @@ h2 {
 
 	grid-template-areas: 
 		"nav nav nav"
-		"weer weer weer"
+		"weer weer joke"
 		"top top top"
 		"top1 top2 top3"
-		"joke joke joke"
 		"foot foot foot";
 }
 
