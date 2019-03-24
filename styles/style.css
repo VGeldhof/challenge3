@@ -390,10 +390,9 @@ h2 {
 
 	grid-template-areas: 
 		"nav nav nav"
-		"weer weer weer"
+		"weer weer joke"
 		"top top top"
 		"top1 top2 top3"
-		"joke joke joke"
 		"foot foot foot";
 }
 
@@ -419,7 +418,7 @@ h2 {
 }
 
 .box3 {
-	margin: 0;
+	margin: 25px 0 0 0;
 	padding: 48px;
 }
 
@@ -430,6 +429,10 @@ h2 {
 
 .box5 {
 	padding: 48px;
+}
+
+.box6, .box7, .box8 {
+	margin-bottom: 25px;
 }
 
 
