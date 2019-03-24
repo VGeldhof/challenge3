@@ -96,6 +96,9 @@ h2 {
 #city {
 	font-size: 2em;
 	margin: 20px 0 20px 0;
+	color: #005288;
+	text-shadow: 2px 1px 0px #fff, 
+				 4px 2px 0px rgba(0,0,0,0.15);
 }
 
 #weather {
@@ -106,6 +109,9 @@ h2 {
 #temp {
 	font-size: 5em;
 	margin: 20px 0 20px 0;
+	color: #005288;
+	text-shadow: 2px 1px 0px #fff, 
+				 5px 2px 0px rgba(0,0,0,0.15);
 }
 
 .box3 {
@@ -120,6 +126,9 @@ h2 {
 
 #cityName {
 	font-size: 2em;
+	color: #005288;
+	text-shadow: 2px 1px 0px #fff, 
+				 4px 2px 0px rgba(0,0,0,0.15);
 }
 
 #collectionTitle {
@@ -172,7 +181,7 @@ h2 {
 	font-size: 2em;
 	color: #005288;
 	text-shadow: 2px 1px 0px #fff, 
-				 5px 3px 0px rgba(0,0,0,0.15);
+				 4px 2px 0px rgba(0,0,0,0.15);
 	padding: 10px 10px 0 10px;
 }
 
@@ -214,6 +223,8 @@ h2 {
 	border-top: 1px solid #3498da;
 	padding: 15px;
 	color: #005288;
+	text-shadow: 2px 1px 0px #fff, 
+				 4px 2px 0px rgba(0,0,0,0.15);
 }
 
 #jokeA {
