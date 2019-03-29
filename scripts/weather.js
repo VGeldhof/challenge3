@@ -106,15 +106,82 @@ function getAPIdataForecast() {
 function onAPISuccesForecast(response) {
 	console.log(response)
 	
-	var weatherList = response.weather[0].icon;
-	var iconUrl = 'http://openweathermap.org/img/w/' + weatherList + '.png';
-	var weatherIcon = weatherList + iconUrl;
+	var type = response.weather[0].description;
+	var icon = response.weather[0].icon;
+
+	// var iconUrl = 'http://openweathermap.org/img/w/' + weatherList + '.png';
+	// var weatherIcon = iconUrl;
 	
-	var forecastMessage = document.getElementById('weatherIMG').setAttribute('src', weatherIcon);
+	// var forecastIcon = document.getElementById('weatherIMG').setAttribute('src', weatherIcon);
+	// weatherBox.innerHTML = forecastIcon;
+
+	var weatherIcon = document.getElementById('weatherIMG');
+
+
+	if (icon == '01d') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/01d.png';
+	}
+	else if (icon == '01n') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/01n.png';
+	}
+
+	else if (icon == '02d') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/02d.png';
+	}
+	else if (icon == '02n') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/02n.png';
+	}
+
+	else if (icon == '03d') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/03d.png';
+	}
+	else if (icon == '03n') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/03n.png';
+	}
+
+	else if (icon == '04d') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/04d.png';
+	}
+	else if (icon == '04n') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/04n.png';
+	}
+
+	else if (icon == '09d') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/09d.png';
+	}
+	else if (icon == '09n') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/09n.png';
+	}
+
+	else if (icon == '10d') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/10d.png';
+	}
+	else if (icon == '10n') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/10n.png';
+	}
+
+	else if (icon == '11d') {
+		return weatherIcon.src = 'http:openweathermap.org/img/w/11d.png';
+	}
+	else if (icon == '11n') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/11n.png';
+	}
+
+	else if (icon == '13d') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/13d.png';
+	}
+	else if (icon == '13n') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/13n.png';
+	}
+
+	else if (icon == '50d') {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/50d.png';
+	}
+	else {
+		return weatherIcon.src =  'http:openweathermap.org/img/w/50n.png';
+	}
+
 	
-	var weatherBox = document.getElementById('icon');
-	
-	weatherBox.innerHTML = forecastMessage;
 
 }
 
