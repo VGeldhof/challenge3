@@ -4,7 +4,7 @@ function getAPIdataJoke() {
 	
 	var request = url;
 
-	// get current city details
+	// fetch details
 	fetch(request)
 	
 	// parse to JSON format
@@ -17,23 +17,21 @@ function getAPIdataJoke() {
 		return response.json();
 	})
 	
-	// render weather per day
-	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
 	.then(function(response) {
-		// render weatherCondition
+		// render joke
 		onAPISuccesJoke(response);	
 	})
 	
 	// catch error
 	// Hier vang je de fout op.
-	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	// als de fout gevangen is, moet voert hij dit gaan uitvoeren.
 	.catch(function (error) {
 		onAPIError(error);
 	});
 }
 
 function onAPISuccesJoke(response) {
-	console.log(response)
+	// console.log(response)
 	
 	var jokeSetup = response.setup;
 	var jokePunchline = response.punchline;
@@ -50,21 +48,7 @@ function onAPISuccesJoke(response) {
 
 function onAPIError(error) {
 	console.error('Request failed', error);
-	var weatherCity = document.getElementById('city');
-	// laat als een error er is maakt hij hem hidden.
-	weatherCity.className = 'hidden'; 
-
-	var weatherType = document.getElementById('weather');
-	// laat als een error er is maakt hij hem hidden.
-	weatherType.className = 'hidden';
-
-	var weatherTemp = document.getElementById('temp');
-	// laat als een error er is maakt hij hem hidden.
-	weatherTemp.className = 'hidden';
-
-	var weatherList = document.getElementById('icon');
-	// laat als een error er is maakt hij hem hidden.
-	weatherList.className = 'hidden';
+	
 }
 
 

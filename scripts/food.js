@@ -30,16 +30,14 @@ function getAPIdataZomato() {
 		return response.json();
 	})
 	
-	// render weather per day
 	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
 	.then(function(response) {
-		// render weatherCondition
 		onAPISuccesZomato(response);	
 	})
 	
 	// catch error
-	// Hier vang je de fout op.
-	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	// Hier wordt de fout opgevangen.
+	// als de fout gevangen is, moet hij dit gaan uitvoeren.
 	.catch(function (error) {
 		onAPIError(error);
 	});
@@ -90,23 +88,23 @@ function getAPIdataZomatoCollections() {
 		return response.json();
 	})
 	
-	// render weather per day
 	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
 	.then(function(response) {
-		// render weatherCondition
+
 		onAPISuccesZomatoCollections(response);	
+
 	})
 	
 	// catch error
-	// Hier vang je de fout op.
-	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	// Hier vang hij de fout op.
+	// als de fout gevangen is, moet hij dit gaan uitvoeren.
 	.catch(function (error) {
 		onAPIError(error);
 	});
 }
 
 function onAPISuccesZomatoCollections(response) {
-	console.log(response)
+	// console.log(response)
 
 	var restaurant = response.collections[0].collection.title;
 
@@ -182,7 +180,7 @@ function getAPIdataZomatoTop() {
 }
 
 function onAPISuccesZomatoTop(response) {
-	console.log(response)
+	// console.log(response)
 
 	var dataName = response.restaurants[0].restaurant.name;
 	var dataCuisine = response.restaurants[0].restaurant.cuisines;
@@ -245,21 +243,7 @@ function onAPISuccesZomatoTop(response) {
 
 function onAPIError(error) {
 	console.error('Request failed', error);
-	var weatherCity = document.getElementById('city');
-	// laat als een error er is maakt hij hem hidden.
-	weatherCity.className = 'hidden'; 
 
-	var weatherType = document.getElementById('weather');
-	// laat als een error er is maakt hij hem hidden.
-	weatherType.className = 'hidden';
-
-	var weatherTemp = document.getElementById('temp');
-	// laat als een error er is maakt hij hem hidden.
-	weatherTemp.className = 'hidden';
-
-	var weatherList = document.getElementById('icon');
-	// laat als een error er is maakt hij hem hidden.
-	weatherList.className = 'hidden';
 }
 
 

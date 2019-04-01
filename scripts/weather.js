@@ -29,8 +29,8 @@ function getAPIdata() {
 	})
 	
 	// catch error
-	// Hier vang je de fout op.
-	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	// Hier wordt de fout opgevangen.
+	// als de fout gevangen is, moet hij dit gaan uitvoeren.
 	.catch(function (error) {
 		onAPIError(error);
 	});
@@ -47,7 +47,6 @@ function onAPISucces(response) {
 	// get name of city
 	var cityName = response.name;
 
-	// render weather in DOM
 	var weatherCity = document.getElementById('city');
 
 	var weatherType = document.getElementById('weather');
@@ -87,7 +86,7 @@ function getAPIdataForecast() {
 		return response.json();
 	})
 	
-	// render weather per day
+	// render weather icon
 	// Als er geen error is wordt dit gedaan en voert die de functie onAPISucces uit.
 	.then(function(response) {
 		// render weatherCondition
@@ -95,8 +94,8 @@ function getAPIdataForecast() {
 	})
 	
 	// catch error
-	// Hier vang je de fout op.
-	// als je de fout gevangen hebt moet je dit gaan uitvoeren.
+	// Hier wordt de fout opgevangen.
+	// als de fout gevangen is, moet hij dit gaan uitvoeren.
 	.catch(function (error) {
 		onAPIError(error);
 	});
@@ -104,7 +103,7 @@ function getAPIdataForecast() {
 
 // Als het wel goed is wordt deze uitgevoerd.
 function onAPISuccesForecast(response) {
-	console.log(response)
+	// console.log(response)
 	
 	var type = response.weather[0].description;
 	var icon = response.weather[0].icon;
@@ -203,7 +202,7 @@ function onAPIError(error) {
 
 	var weatherList = document.getElementById('icon');
 	// laat als een error er is maakt hij hem hidden.
-	weatherList.className = 'hidden';
+	weatherIcon.className = 'hidden';
 }
 
 
